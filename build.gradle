@@ -8,8 +8,8 @@ plugins {
 // apply plugin: "war"
 
 group = "com.mytodo"
-version = "0.0.1-SNAPSHOT"
-sourceCompatibility = "21"
+version = "0.0.1"
+sourceCompatibility = "17"
 
 repositories {
 	mavenCentral()
@@ -17,7 +17,9 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.18.3'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	// providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
