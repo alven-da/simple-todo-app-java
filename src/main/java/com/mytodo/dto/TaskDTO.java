@@ -5,8 +5,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CategoryDTO {
-	private String id;
+public class TaskDTO {
+	private String taskId;
 	private String name;
-	private String description;
+	private String category;
+	private boolean isCompleted;
 }

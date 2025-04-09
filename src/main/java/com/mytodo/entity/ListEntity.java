@@ -5,9 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CategoryEntity {
-	
+public class ListEntity {
 	private String id;
-	private String name;
-	private String description;
+	private String owner;
 }

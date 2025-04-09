@@ -3,14 +3,17 @@ package com.mytodo.repository.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+import com.mytodo.common.Constants;
 import com.mytodo.entity.CategoryEntity;
 import com.mytodo.repository.ICategoryRepository;
 
+@Component(Constants.CATEGORY_REPOSITORY)
 public class CategoryMockRepository implements ICategoryRepository {
 
 	@Override
-	public List<CategoryEntity> getCategories() {
-		// TODO Auto-generated method stub
+	public List<CategoryEntity> getAll() {
 		CategoryEntity ent1 = new CategoryEntity();
 		CategoryEntity ent2 = new CategoryEntity();
 		
@@ -28,6 +31,11 @@ public class CategoryMockRepository implements ICategoryRepository {
 		respon.add(ent2);
 		
 		return respon;
+	}
+
+	@Override
+	public boolean addSingleEntity(CategoryEntity entity) {
+		return true;
 	}
 
 }
