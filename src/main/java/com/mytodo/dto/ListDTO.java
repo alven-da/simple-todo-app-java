@@ -7,5 +7,6 @@ import lombok.Setter;
 @Setter
 public class ListDTO {
 	private String listId;
+	private String title;
 	private TaskDTO[] tasks;
 }

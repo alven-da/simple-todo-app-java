@@ -1,12 +1,11 @@
-package com.mytodo.entity;
+package com.mytodo.dto;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class CategoryEntity {
-	
+public class LabelDTO {
 	private String id;
 	private String name;
 	private String description;

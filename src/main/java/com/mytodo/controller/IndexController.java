@@ -1,20 +1,22 @@
 package com.mytodo.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class IndexController {
+
+	@Autowired
+	private Environment environment;
 	
 	@GetMapping("/")
 	public String showHomePage() {
+		String url = environment.getProperty("spring.datasource.username");
+		System.out.println(url);
 		return "index";
 	}
 	
