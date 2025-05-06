@@ -8,6 +8,6 @@ import lombok.Setter;
 public class TaskDTO {
 	private String taskId;
 	private String name;
-	private String category;
-	private boolean isCompleted;
+	private LabelDTO[] labels;
+	private String status;
 }

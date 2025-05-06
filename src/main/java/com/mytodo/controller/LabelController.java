@@ -14,39 +14,39 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mytodo.common.TodoUtils;
-import com.mytodo.dto.CategoryDTO;
+import com.mytodo.dto.LabelDTO;
 import com.mytodo.dto.CommonResponseDTO;
-import com.mytodo.service.CategoryService;
+import com.mytodo.service.LabelService;
 
 @RestController
 @RequestMapping("/")
-public class CategoryController {
+public class LabelController {
 	
 	@Autowired
-	private CategoryService categoryService;
+	private LabelService labelService;
 	
 	private ObjectMapper mapper = TodoUtils.getObjectMapper();
 	
-	@GetMapping(value = "/categories", produces = "application/json")
-	public ResponseEntity<JsonNode> getAllCategories() {
-		return ResponseEntity.ok(this.mapper.convertValue(categoryService.getAllCategories(), JsonNode.class));
+	@GetMapping(value = "/labels", produces = "application/json")
+	public ResponseEntity<JsonNode> getLabels() {
+		return ResponseEntity.ok(this.mapper.convertValue(labelService.getLabels(), JsonNode.class));
 	}
 	
-	@PostMapping(value = "/category", produces = "application/json")
-	public ResponseEntity<JsonNode> createCategory(@RequestBody String body) {
+	@PostMapping(value = "/label", produces = "application/json")
+	public ResponseEntity<JsonNode> createLabel(@RequestBody String body) {
 		CommonResponseDTO cer;
 		JsonNode res;
 
 		try {
 			// ObjectMapper - throws Exception if does not match the class
-			CategoryDTO dto = this.mapper.readValue(body, CategoryDTO.class);
+			LabelDTO dto = this.mapper.readValue(body, LabelDTO.class);
 			
-			this.categoryService.addCategory(dto);
+			this.labelService.addLabel(dto);
 			
 			cer = TodoUtils.createCommonResponse(
 					HttpStatus.OK.name(),
 					HttpStatus.OK.value(),
-					"Category has been added successfully"
+					"Label has been added successfully"
 				);
 			
 			return ResponseEntity.ok(mapper.convertValue(cer, JsonNode.class));

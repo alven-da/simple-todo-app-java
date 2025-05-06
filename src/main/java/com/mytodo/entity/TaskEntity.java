@@ -1,7 +1,5 @@
 package com.mytodo.entity;
 
-import java.util.Date;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,10 +8,8 @@ import lombok.Setter;
 public class TaskEntity {
 	private String id;
 	private String listId;
-	private String name;
+	private String title;
 	private String description;
-	private String categoryId;
-	private boolean isCompleted;
-	private Date created;
-	private Date updated;
+	private String status;
+	private LabelEntity[] labels;
 }

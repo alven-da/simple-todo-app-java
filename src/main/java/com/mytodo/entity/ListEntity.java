@@ -7,5 +7,7 @@ import lombok.Setter;
 @Setter
 public class ListEntity {
 	private String id;
-	private String owner;
+	private String title;
+	private String description;
+	private TaskEntity[] tasks;
 }

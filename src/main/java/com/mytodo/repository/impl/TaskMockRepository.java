@@ -20,9 +20,6 @@ public class TaskMockRepository implements ITaskRepository {
 		
 		ent1.setId("1");
 		ent1.setListId(listId);
-		ent1.setName("Go to market");
-		ent1.setCategoryId("3");
-		ent1.setCompleted(false);
 		
 		entities.add(ent1);
 		
@@ -30,9 +27,6 @@ public class TaskMockRepository implements ITaskRepository {
 
 		ent2.setId("2");
 		ent2.setListId(listId);
-		ent2.setName("Study Spring Boot");
-		ent2.setCategoryId("2");
-		ent2.setCompleted(true);
 		
 		entities.add(ent2);
 		

@@ -26,7 +26,7 @@ public class ListController {
 	
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<JsonNode> getListById(@PathVariable("id") String id) {
-		ListDTO dto = this.listService.getListByOwner(id);
+		ListDTO dto = this.listService.getListById(id);
 		
 		CommonOkResponseDTO<ListDTO> resp = new CommonOkResponseDTO<ListDTO>();
 		resp.setData(dto);

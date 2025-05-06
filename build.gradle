@@ -20,7 +20,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'com.fasterxml.jackson.core:jackson-databind:2.18.3'
+  	implementation 'org.postgresql:postgresql'
+  	implementation 'mysql:mysql-connector-java:6.0.6'
+	implementation 'org.jooq:jooq:3.6.2'
 
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 
