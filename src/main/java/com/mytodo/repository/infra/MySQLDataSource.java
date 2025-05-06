@@ -15,6 +15,7 @@ public class MySQLDataSource {
 					"jdbc:mysql://localhost:3306/todo_db",
 					"hexagonal_user",
 					"password");
+			System.out.println("MySQL connected successfully");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

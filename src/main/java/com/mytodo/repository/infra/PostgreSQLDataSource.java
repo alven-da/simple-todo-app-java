@@ -1,22 +1,37 @@
 package com.mytodo.repository.infra;
 
-import javax.sql.DataSource;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.jdbc.DataSourceBuilder;
-import org.springframework.core.env.Environment;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class PostgreSQLDataSource {
 	
-	@Autowired
-	private Environment environment;
+	private static PostgreSQLDataSource _instance;
 	
-	public DataSource dataSource() {
-		return DataSourceBuilder.create()
-			.driverClassName("org.postgresql.Driver")
-            .url(environment.getProperty("spring.datasource.url"))
-            .username(environment.getProperty("spring.datasource.username"))
-            .password(environment.getProperty("spring.datasource.password"))
-            .build();
+	private Connection connection;
+	
+	private PostgreSQLDataSource() {
+		try {
+			this.connection = DriverManager.getConnection(
+					"jdbc:postgresql://localhost:5433/todo_app",
+					"postgres",
+					"mypassword"
+				);
+			System.out.println("PostgreSQL connected successfully");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static PostgreSQLDataSource getInstance() {
+		if (_instance == null) {
+			_instance = new PostgreSQLDataSource();
+		}
+		
+		return _instance;
+	}
+	
+	public Connection getConnection() {
+		return this.connection;
 	}
 }

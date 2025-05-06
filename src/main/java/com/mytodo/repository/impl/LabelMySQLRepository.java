@@ -15,7 +15,7 @@ import com.mytodo.repository.infra.MySQLDataSource;
 
 import static org.jooq.SQLDialect.MYSQL;
 
-@Component(Constants.LABEL_REPOSITORY)
+//@Component(Constants.LABEL_REPOSITORY)
 public class LabelMySQLRepository implements ILabelRepository {
 
 	@Override
