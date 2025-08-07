@@ -39,8 +39,8 @@ public class LabelService {
 	}
 	
 	public List<LabelDTO> getLabels() {
-		List<LabelEntity> entities = this.labelRepo.getAll();
-		
+		List<LabelEntity> entities = labelRepo.getAll();
+
 		List<LabelDTO> dtos = new ArrayList<LabelDTO>();
 		
 		for (LabelEntity obj : entities) {
@@ -52,7 +52,7 @@ public class LabelService {
 	
 	public boolean addLabel(LabelDTO dto) {		
 		try {
-			return this.labelRepo.addSingleEntity(this.toEntity(dto));
+			return labelRepo.addSingleEntity(this.toEntity(dto));
 		} catch (Exception ex) {
 			return false;
 		}
