@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mytodo.common.TodoUtils;
@@ -50,15 +49,9 @@ public class LabelController {
 				);
 			
 			return ResponseEntity.ok(mapper.convertValue(cer, JsonNode.class));
-		} catch (JsonMappingException e) {
-			cer = TodoUtils.createCommonResponse(HttpStatus.BAD_REQUEST.name(), HttpStatus.BAD_REQUEST.value(), e.getOriginalMessage());
-			res = this.mapper.convertValue(cer, JsonNode.class);
-			
-			e.printStackTrace();
-			
-			return new ResponseEntity<JsonNode>(res, HttpStatus.BAD_REQUEST);
 		} catch (JsonProcessingException e) {
-			cer = TodoUtils.createCommonResponse(HttpStatus.BAD_REQUEST.name(), HttpStatus.BAD_REQUEST.value(), e.getOriginalMessage());
+			String message = e.getOriginalMessage() != null ? e.getOriginalMessage() : "Invalid JSON input";
+			cer = TodoUtils.createCommonResponse(HttpStatus.BAD_REQUEST.name(), HttpStatus.BAD_REQUEST.value(), message);
 			res = this.mapper.convertValue(cer, JsonNode.class);
 			
 			e.printStackTrace();
