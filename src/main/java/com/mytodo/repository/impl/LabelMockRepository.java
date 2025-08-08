@@ -9,7 +9,7 @@ import com.mytodo.common.Constants;
 import com.mytodo.entity.LabelEntity;
 import com.mytodo.repository.ILabelRepository;
 
-// @Component(Constants.LABEL_REPOSITORY)
+@Component(Constants.LABEL_TEST_REPOSITORY)
 public class LabelMockRepository implements ILabelRepository {
 
 	@Override
